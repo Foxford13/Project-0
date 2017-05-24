@@ -3,10 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <title>Project 0</title>
+  <style>
+  @import url('https://fonts.googleapis.com/css?family=Baloo+Bhaina');
+  </style>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="public/js/app.js" charset="utf-8"></script>
-  <link rel="stylesheet" href="public/css/main.css">
+  <link rel="stylesheet" href="public/css/reset-css.css">
+  <link rel="stylesheet" href="public/css/style.css">
+
+
 </head>
 <body>
-  <h1>Project 0</h1>
+  <main>
+    <h1>Reversi</h1>
+    <div class = "game">
+    </div>
+    <div class="display-board">
+      <div class="current"></div>
+      <div class ="results">
+        <span class ="score-one">
+          <!-- <img src="public/images/black-smiley.gif" alt="black-smiley" id="black-score"> -->
+        </span>
+        <span class="score-two">
+          <!-- <img src="public/images/yellow-smiley.gif" alt="yellow-smiley" id = "yellow-score"> -->
+        </span>
+      </div>
+    
+      <button class="reset-rev">Reset</button>
+    </div>
+
+  </main>
 </body>
 </html>
