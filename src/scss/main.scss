@@ -73,7 +73,7 @@ color: black;
   margin:3% 5%;
   border: 3px solid black;
 }
-.box {
+.square {
   width: 75.5px;
   height: 75.5px;
   border: 1px solid grey;
@@ -108,7 +108,7 @@ color: black;
   background-repeat: no-repeat;
   background-size: 12%;
   background-image: cover;
-  -webkit-text-stroke: 0.5px yellow;
+  -webkit-text-stroke: 0.5px white;
   clear: right;
 }
 .current-two {
@@ -139,7 +139,7 @@ color: black;
 
   float: left;
   width: 50%;
-  -webkit-text-stroke: 0.5px yellow;
+  -webkit-text-stroke: 0.5px white;
 }
 .score-two {
   background-image:url(../images/yellow-smiley.gif);
