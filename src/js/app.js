@@ -13,7 +13,7 @@ rev.scoreCounter = function scoreCounter() {
 
 rev.startingPosition = function startingPosition() {
   for ( let i = 0; i < rev.boardSize; i++) {
-    this.$game.append($('<div>').addClass('square').append($('<div>').addClass('inner')));
+    this.$game.append($('<div>').addClass('square'));
 
   }
   this.$squares = $('.square');
@@ -54,9 +54,13 @@ rev.flipPieces =  function flipPieces(e, piecesInPlay, enemyPieces, piecesCoordi
   const pieceFlankingEnemyPieces = piecesToTurn[piecesToTurn.length - 1] + piecesCoordinates;
 
   if (rev.$squares.eq(pieceFlankingEnemyPieces).hasClass(piecesInPlay) && pieceFlankingEnemyPieces >= 0 && pieceFlankingEnemyPieces <= 63) {
+
     for (let i = 0; i < piecesToTurn.length; i++) {
       $targetSquare.addClass(piecesInPlay);
-      $('body').find(rev.$squares).eq(piecesToTurn[i]).removeClass(enemyPieces).addClass(piecesInPlay);
+      setTimeout(() => $('body').find(rev.$squares).eq(piecesToTurn[i]).removeClass(enemyPieces), 300);
+      $('body').find(rev.$squares).eq(piecesToTurn[i]).addClass('flippy');
+      setTimeout(() => $('body').find(rev.$squares).eq(piecesToTurn[i]).removeClass('flippy'), 300);
+      $('body').find(rev.$squares).eq(piecesToTurn[i]).addClass(piecesInPlay);
       this.playerOnePlaying = piecesInPlay === 'black-piece' ? false : true;
       this.playerOnePlaying ? this.$isPlaying.text('Player 1 - black').addClass('current-one').removeClass('current-two') : this.$isPlaying.text('Player 2 - yellow').addClass('current-two').removeClass('current-one');
       this.$moveA.play();

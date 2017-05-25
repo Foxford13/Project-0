@@ -81,7 +81,7 @@ main {
       border: 1px solid grey;
       float: left;
       box-sizing: border-box;
-      
+
     }
 
     .black-piece {
@@ -93,7 +93,11 @@ main {
       background-image:url(../images/yellow-smiley.gif);
       background-size:100%;
     }
+    .flippy {
+      background-image:url(../images/flippy.gif);
+      background-size:100%;
 
+    }
   }
 
   .display-board {
