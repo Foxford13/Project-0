@@ -56,12 +56,12 @@ rev.flipPieces =  function flipPieces(e, piecesInPlay, enemyPieces, piecesCoordi
       this.$moveA.play();
     }
   }
-
 };
 
 rev.flip = function flip(e) {
   const piecesInPlay = rev.playerOnePlaying ? 'black-piece' : 'yellow-piece';
   const enemyPieces = rev.playerOnePlaying ? 'yellow-piece' : 'black-piece';
+  
   if ($(e.target).hasClass(piecesInPlay)  || $(e.target).hasClass(enemyPieces)) return false;
   [1,9,8,7,-1,-9,-8,-7].forEach((number) => {
     this.flipPieces(e, piecesInPlay, enemyPieces, number);
