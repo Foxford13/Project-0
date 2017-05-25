@@ -13,13 +13,18 @@ rev.scoreCounter = function scoreCounter() {
 
 rev.startingPosition = function startingPosition() {
   for ( let i = 0; i < rev.boardSize; i++) {
-    this.$game.append($('<div>').addClass('square'));
+    this.$game.append($('<div>').addClass('square').append($('<div>').addClass('inner')));
+
   }
   this.$squares = $('.square');
   this.startingPieces();
   this.scoreCounter();
   this.$isPlaying.text('Player 1 - black').addClass('current-one');
+
+
 };
+
+
 
 rev.reset = function reset() {
   rev.$squares.removeClass('black-piece').removeClass('yellow-piece');
@@ -45,6 +50,7 @@ rev.flipPieces =  function flipPieces(e, piecesInPlay, enemyPieces, piecesCoordi
     i += piecesCoordinates;
   }
 
+
   const pieceFlankingEnemyPieces = piecesToTurn[piecesToTurn.length - 1] + piecesCoordinates;
 
   if (rev.$squares.eq(pieceFlankingEnemyPieces).hasClass(piecesInPlay) && pieceFlankingEnemyPieces >= 0 && pieceFlankingEnemyPieces <= 63) {
@@ -61,7 +67,7 @@ rev.flipPieces =  function flipPieces(e, piecesInPlay, enemyPieces, piecesCoordi
 rev.flip = function flip(e) {
   const piecesInPlay = rev.playerOnePlaying ? 'black-piece' : 'yellow-piece';
   const enemyPieces = rev.playerOnePlaying ? 'yellow-piece' : 'black-piece';
-  
+
   if ($(e.target).hasClass(piecesInPlay)  || $(e.target).hasClass(enemyPieces)) return false;
   [1,9,8,7,-1,-9,-8,-7].forEach((number) => {
     this.flipPieces(e, piecesInPlay, enemyPieces, number);
@@ -81,6 +87,7 @@ rev.setup  = function setup() {
   rev.$moveA = $('#move-sound')[0];
   rev.$resetBtn.on('click', rev.reset);
   rev.startingPosition();
+
   rev.$squares.on('click', rev.flip.bind(rev));
 };
 $(rev.setup.bind(rev));
