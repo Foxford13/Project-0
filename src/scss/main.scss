@@ -162,6 +162,7 @@ main {
         float: left;
         width: 50%;
         -webkit-text-stroke: 0.5px white;
+        padding-left: 40px;
       }
       .score-two {
         background-image:url(../images/yellow-smiley.gif);
@@ -172,6 +173,7 @@ main {
         color: yellow;
         width: 50%;
         -webkit-text-stroke: 1.5px black;
+        padding-left: 40px;
       }
     }
     .reset-rev {
