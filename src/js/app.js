@@ -24,8 +24,6 @@ rev.startingPosition = function startingPosition() {
 
 };
 
-
-
 rev.reset = function reset() {
   rev.$squares.removeClass('black-piece').removeClass('yellow-piece');
   rev.startingPieces();
@@ -49,7 +47,6 @@ rev.flipPieces =  function flipPieces(e, piecesInPlay, enemyPieces, piecesCoordi
     piecesToTurn.push(indexOfTarget + i);
     i += piecesCoordinates;
   }
-
 
   const pieceFlankingEnemyPieces = piecesToTurn[piecesToTurn.length - 1] + piecesCoordinates;
 
@@ -77,6 +74,7 @@ rev.flip = function flip(e) {
     this.flipPieces(e, piecesInPlay, enemyPieces, number);
   });
   this.scoreCounter();
+
 };
 
 rev.setup  = function setup() {
