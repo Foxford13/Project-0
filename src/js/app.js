@@ -1,4 +1,5 @@
 var rev = rev || {};
+//sets starting pieces on the board
 rev.startingPieces = function startingPieces () {
   this.$squares.eq(27).addClass('yellow-piece');
   this.$squares.eq(28).addClass('black-piece');
@@ -6,9 +7,12 @@ rev.startingPieces = function startingPieces () {
   this.$squares.eq(36).addClass('yellow-piece');
 };
 
+//pushes the current score onto the board
 rev.scoreCounter = function scoreCounter() {
   this.$scoreOne.text( 'Player One' +' ' + $('.black-piece').length);
   this.$scoreTwo.text('Player Two' +' ' + $('.yellow-piece').length);
+  console.log($('.black-piece').length);
+  console.log($('.yellow-piece').length);
 };
 
 rev.startingPosition = function startingPosition() {
@@ -48,10 +52,10 @@ rev.flipPieces =  function flipPieces(e, piecesInPlay, enemyPieces, piecesCoordi
     i += piecesCoordinates;
   }
 
+
   const pieceFlankingEnemyPieces = piecesToTurn[piecesToTurn.length - 1] + piecesCoordinates;
 
   if (rev.$squares.eq(pieceFlankingEnemyPieces).hasClass(piecesInPlay) && pieceFlankingEnemyPieces >= 0 && pieceFlankingEnemyPieces <= 63) {
-
     for (let i = 0; i < piecesToTurn.length; i++) {
       $targetSquare.addClass(piecesInPlay);
       setTimeout(() => $('body').find(rev.$squares).eq(piecesToTurn[i]).removeClass(enemyPieces), 300);
@@ -73,9 +77,9 @@ rev.flip = function flip(e) {
   [1,9,8,7,-1,-9,-8,-7].forEach((number) => {
     this.flipPieces(e, piecesInPlay, enemyPieces, number);
   });
-  this.scoreCounter();
-
+  setTimeout(() =>  this.scoreCounter(), 300);
 };
+
 
 rev.setup  = function setup() {
   rev.$isPlaying = $('.current');
